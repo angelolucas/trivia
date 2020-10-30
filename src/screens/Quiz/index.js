@@ -3,24 +3,34 @@ import { StatusBar } from "expo-status-bar";
 import { QUESTIONS_LENGTH } from "../../constants";
 import * as S from "./styles";
 
-const Quiz = ({ navigation, route: { params } }) => {
+const Quiz = ({
+  navigation,
+  route: {
+    params: { quizList },
+  },
+}) => {
   const [progress, setProgress] = useState(0);
-  const [hits, setHits] = useState(0);
-  const quiz = params[progress];
+  const [answers, setAnswers] = useState([]);
+  const quiz = quizList[progress];
 
   const handleAnswer = (answer) => {
     const newProgress = progress + 1;
 
     if (answer === quiz.correct_answer) {
-      setHits(hits + 1);
+      setAnswers([...answers, ...[true]]);
+    } else {
+      setAnswers([...answers, ...[false]]);
     }
 
     if (newProgress === QUESTIONS_LENGTH) {
-      navigation.navigate("Results");
+      console.log({ quiz, answers });
+      navigation.navigate("Results", { quizList, answers });
     } else {
       setProgress(newProgress);
     }
   };
+
+  console.log(answers);
 
   return (
     <S.Container>

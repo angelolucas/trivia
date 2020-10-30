@@ -16,7 +16,7 @@ const Home = ({ navigation }) => (
     </S.Text>
     <S.Text
       accessibilityRole="button"
-      onPress={() => navigation.navigate("Quiz", data.results)}
+      onPress={() => navigation.navigate("Quiz", { quizList: data.results })}
     >
       Begin
     </S.Text>
