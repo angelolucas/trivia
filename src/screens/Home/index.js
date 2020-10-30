@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text } from "react-native";
+import * as S from "./styles";
 
 const Home = ({ navigation }) => (
-  <View style={styles.container}>
+  <S.Container>
     <Text accessibilityRole="heading">Welcome to the Trivia Challenge!</Text>
     <Text accessibilityRole="heading" aria-level="2">
       You will be presented with 10 True of False Questions
@@ -18,16 +19,7 @@ const Home = ({ navigation }) => (
       Begin
     </Text>
     <StatusBar style="auto" />
-  </View>
+  </S.Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default Home;

@@ -1,21 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text } from "react-native";
+import * as S from "./styles";
 
 const Quiz = () => (
-  <View style={styles.container}>
+  <S.Container>
     <Text accessibilityRole="heading">Quiz Page comes soon!</Text>
     <StatusBar style="auto" />
-  </View>
+  </S.Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default Quiz;
