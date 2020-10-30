@@ -15,6 +15,15 @@ const Results = ({
       <S.Text accessibilityRole="heading">
         You scored {hits}/{QUESTIONS_LENGTH}
       </S.Text>
+      {quizList.map((quizItem, index) => (
+        <>
+          <S.Text>{quizItem.question}</S.Text>
+          <S.Text>
+            {answers[index] ? "+ You're right" : "- You Missed"}, the answers is{" "}
+            {quizItem.correct_answer}
+          </S.Text>
+        </>
+      ))}
       <StatusBar style="auto" />
     </S.Container>
   );

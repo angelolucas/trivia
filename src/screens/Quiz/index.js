@@ -11,19 +11,18 @@ const Quiz = ({
 }) => {
   const [progress, setProgress] = useState(0);
   const [answers, setAnswers] = useState([]);
-  const quiz = quizList[progress];
+  const quizItem = quizList[progress];
 
   const handleAnswer = (answer) => {
     const newProgress = progress + 1;
 
-    if (answer === quiz.correct_answer) {
+    if (answer === quizItem.correct_answer) {
       setAnswers([...answers, ...[true]]);
     } else {
       setAnswers([...answers, ...[false]]);
     }
 
     if (newProgress === QUESTIONS_LENGTH) {
-      console.log({ quiz, answers });
       navigation.navigate("Results", { quizList, answers });
     } else {
       setProgress(newProgress);
@@ -34,8 +33,8 @@ const Quiz = ({
 
   return (
     <S.Container>
-      <S.Text accessibilityRole="heading">{quiz.category}</S.Text>
-      <S.Text>{quiz.question}</S.Text>
+      <S.Text accessibilityRole="heading">{quizItem.category}</S.Text>
+      <S.Text>{quizItem.question}</S.Text>
       <S.Text accessibilityRole="button" onPress={() => handleAnswer("True")}>
         TRUE
       </S.Text>
