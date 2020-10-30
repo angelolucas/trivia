@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const Home = () => (
+const Home = ({ navigation }) => (
   <View style={styles.container}>
     <Text accessibilityRole="heading">Welcome to the Trivia Challenge!</Text>
     <Text accessibilityRole="heading" aria-level="2">
@@ -11,7 +11,12 @@ const Home = () => (
     <Text accessibilityRole="heading" aria-level="3">
       Can you score 100%
     </Text>
-    <Text accessibilityRole="button">Begin</Text>
+    <Text
+      accessibilityRole="button"
+      onPress={() => navigation.navigate("Quiz")}
+    >
+      Begin
+    </Text>
     <StatusBar style="auto" />
   </View>
 );
