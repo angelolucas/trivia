@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import * as S from "./styles";
+import data from "../../mock";
 
 const Home = ({ navigation }) => (
   <S.Container>
@@ -15,7 +16,7 @@ const Home = ({ navigation }) => (
     </S.Text>
     <S.Text
       accessibilityRole="button"
-      onPress={() => navigation.navigate("Quiz")}
+      onPress={() => navigation.navigate("Quiz", data.results)}
     >
       Begin
     </S.Text>
