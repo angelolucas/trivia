@@ -9,4 +9,5 @@ export const Container = styled.View(({ theme }) => ({
 
 export const Text = styled.Text(({ theme }) => ({
   color: theme.text,
+  fontSize: 30,
 }));
