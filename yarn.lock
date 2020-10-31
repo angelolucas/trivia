@@ -959,6 +959,10 @@
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
 
+"@expo-google-fonts/share-tech-mono@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/share-tech-mono/-/share-tech-mono-0.1.0.tgz#72f06d2a27445c2da5e1afa1841ddb44b2ba4f7d"
+
 "@expo/babel-preset-cli@0.2.18":
   version "0.2.18"
   resolved "https://registry.yarnpkg.com/@expo/babel-preset-cli/-/babel-preset-cli-0.2.18.tgz#136acf8a0efe259e29ebc614b68552e5acb47d86"
