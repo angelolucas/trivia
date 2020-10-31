@@ -28,7 +28,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme(dark)}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator headerMode="none" initialRouteName="Home">
           <Stack.Screen name="Home" title="teste" component={Home} />
           <Stack.Screen name="Quiz" component={Quiz} />
           <Stack.Screen name="Results" component={Results} />
