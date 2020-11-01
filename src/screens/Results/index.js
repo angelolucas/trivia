@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { StatusBar } from "expo-status-bar";
 import { QUESTIONS_LENGTH } from "../../constants";
-import Container from "../../components/Container";
-import * as S from "./styles";
+import { Container, Text } from "../../components";
 
 const Results = ({
   navigation,
@@ -17,24 +16,24 @@ const Results = ({
 
   return (
     <Container>
-      <S.Text accessibilityRole="heading">
+      <Text accessibilityRole="heading">
         You scored {hits}/{QUESTIONS_LENGTH}
-      </S.Text>
+      </Text>
       {quizList.map((quizItem, index) => (
         <Fragment key={index}>
-          <S.Text>{quizItem.question}</S.Text>
-          <S.Text>
+          <Text>{quizItem.question}</Text>
+          <Text>
             {answers[index] ? "+ You're right" : "- You Missed"}, the answers is{" "}
             {quizItem.correct_answer}
-          </S.Text>
+          </Text>
         </Fragment>
       ))}
-      <S.Text
+      <Text
         accessibilityRole="button"
         onPress={() => navigation.navigate("Home")}
       >
         Try again
-      </S.Text>
+      </Text>
       <StatusBar style="auto" />
     </Container>
   );

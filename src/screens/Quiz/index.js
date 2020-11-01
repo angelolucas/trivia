@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { QUESTIONS_LENGTH } from "../../constants";
-import Container from "../../components/Container";
-import * as S from "./styles";
+import { Container, Text } from "../../components";
 
 const Quiz = ({
   navigation,
@@ -34,17 +33,17 @@ const Quiz = ({
 
   return (
     <Container>
-      <S.Text accessibilityRole="button" onPress={() => navigation.goBack()}>
+      <Text accessibilityRole="button" onPress={() => navigation.goBack()}>
         Go Back
-      </S.Text>
-      <S.Text accessibilityRole="heading">{quizItem.category}</S.Text>
-      <S.Text>{quizItem.question}</S.Text>
-      <S.Text accessibilityRole="button" onPress={() => handleAnswer("True")}>
+      </Text>
+      <Text accessibilityRole="heading">{quizItem.category}</Text>
+      <Text>{quizItem.question}</Text>
+      <Text accessibilityRole="button" onPress={() => handleAnswer("True")}>
         TRUE
-      </S.Text>
-      <S.Text accessibilityRole="button" onPress={() => handleAnswer("False")}>
+      </Text>
+      <Text accessibilityRole="button" onPress={() => handleAnswer("False")}>
         FALSE
-      </S.Text>
+      </Text>
       <StatusBar style="auto" />
     </Container>
   );
