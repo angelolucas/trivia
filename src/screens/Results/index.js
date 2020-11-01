@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { StatusBar } from "expo-status-bar";
 import { QUESTIONS_LENGTH } from "../../constants";
+import Container from "../../components/Container";
 import * as S from "./styles";
 
 const Results = ({
@@ -11,7 +12,7 @@ const Results = ({
   const hits = answers.reduce((acc, curr) => (curr ? acc + 1 : acc));
 
   return (
-    <S.Container>
+    <Container>
       <S.Text accessibilityRole="heading">
         You scored {hits}/{QUESTIONS_LENGTH}
       </S.Text>
@@ -25,7 +26,7 @@ const Results = ({
         </Fragment>
       ))}
       <StatusBar style="auto" />
-    </S.Container>
+    </Container>
   );
 };
 

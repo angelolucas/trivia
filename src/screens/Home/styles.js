@@ -1,10 +1,10 @@
 import styled from "styled-components/native";
 
-export const Container = styled.View(({ theme: { color } }) => ({
-  flex: 1,
-  backgroundColor: color.background,
-  alignItems: "center",
-  justifyContent: "center",
+export const Welcome = styled.Text(({ theme: { color, fontFamily } }) => ({
+  color: color.text,
+  fontFamily,
+  fontSize: 16,
+  color: color.green,
 }));
 
 export const Text = styled.Text(({ theme: { color, fontFamily } }) => ({

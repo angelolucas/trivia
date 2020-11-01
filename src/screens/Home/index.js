@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import Container from "../../components/Container";
 import * as S from "./styles";
 
 const Home = ({ navigation }) => {
@@ -14,10 +15,10 @@ const Home = ({ navigation }) => {
   };
 
   return (
-    <S.Container>
       <S.Text accessibilityRole="heading">
         Welcome to the Trivia Challenge!
       </S.Text>
+    <Container>
       <S.Text accessibilityRole="heading" aria-level="2">
         You will be presented with 10 True of False Questions
       </S.Text>
@@ -28,7 +29,7 @@ const Home = ({ navigation }) => {
         Begin
       </S.Text>
       <StatusBar style="auto" />
-    </S.Container>
+    </Container>
   );
 };
 
