@@ -16,17 +16,19 @@ const Quiz = ({
 
   const handleAnswer = (answer) => {
     const newProgress = progress + 1;
+    let newAnswersArray = [...answers];
 
     if (answer === quizItem.correct_answer) {
-      setAnswers([...answers, ...[true]]);
+      newAnswersArray = [...answers, ...[true]];
     } else {
-      setAnswers([...answers, ...[false]]);
+      newAnswersArray = [...answers, ...[false]];
     }
 
     if (newProgress === QUESTIONS_LENGTH) {
-      navigation.navigate("Results", { quizList, answers });
+      navigation.navigate("Results", { quizList, answers: newAnswersArray });
     } else {
       setProgress(newProgress);
+      setAnswers(newAnswersArray);
     }
   };
 

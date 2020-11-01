@@ -5,11 +5,15 @@ import Container from "../../components/Container";
 import * as S from "./styles";
 
 const Results = ({
+  navigation,
   route: {
     params: { quizList, answers },
   },
 }) => {
-  const hits = answers.reduce((acc, curr) => (curr ? acc + 1 : acc));
+  const hits = answers.reduce(
+    (total, correct) => (correct ? total + 1 : total),
+    0
+  );
 
   return (
     <Container>

@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Html5Entities } from "html-entities";
+import { QUESTIONS_LENGTH } from "../../constants";
 import Container from "../../components/Container";
 import * as S from "./styles";
 
@@ -8,7 +9,7 @@ const Home = ({ navigation }) => {
   const entities = new Html5Entities();
 
   const fecthQuiz = fetch(
-    "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean"
+    `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&difficulty=hard&type=boolean`
   )
     .then((response) => response.json())
     .then(({ results }) =>
