@@ -29,6 +29,12 @@ const Results = ({
           </S.Text>
         </Fragment>
       ))}
+      <S.Text
+        accessibilityRole="button"
+        onPress={() => navigation.navigate("Home")}
+      >
+        Try again
+      </S.Text>
       <StatusBar style="auto" />
     </Container>
   );
