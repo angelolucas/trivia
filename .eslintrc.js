@@ -30,6 +30,8 @@ module.exports = {
     'react/static-property-placement': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-one-expression-per-line': 0,
+    'implicit-arrow-linebreak': 0,
+    'function-paren-newline': 0,
     'no-param-reassign': 'off',
   },
 };
