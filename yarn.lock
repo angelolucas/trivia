@@ -981,9 +981,9 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@expo-google-fonts/share-tech-mono@^0.1.0":
+"@expo-google-fonts/do-hyeon@^0.1.0":
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@expo-google-fonts/share-tech-mono/-/share-tech-mono-0.1.0.tgz#72f06d2a27445c2da5e1afa1841ddb44b2ba4f7d"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/do-hyeon/-/do-hyeon-0.1.0.tgz#187bdff3d3375e78455192eb59cab7df569c9f6b"
 
 "@expo/babel-preset-cli@0.2.18":
   version "0.2.18"

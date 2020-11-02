@@ -5,10 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ThemeProvider } from 'styled-components/native';
 import { AppLoading } from 'expo';
-import {
-  useFonts,
-  ShareTechMono_400Regular,
-} from '@expo-google-fonts/share-tech-mono';
+import { useFonts, DoHyeon_400Regular } from '@expo-google-fonts/do-hyeon';
 import Home from './screens/Home';
 import Quiz from './screens/Quiz';
 import Results from './screens/Results';
@@ -19,7 +16,7 @@ const Stack = createStackNavigator();
 const App = () => {
   const dark = useColorScheme() === 'dark';
   const [fontsLoaded] = useFonts({
-    ShareTechMono_400Regular,
+    DoHyeon_400Regular,
   });
 
   if (!fontsLoaded) {
