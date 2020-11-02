@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Html5Entities } from 'html-entities';
 import { QUESTIONS_LENGTH } from '../../constants';
 import { Container, Text } from '../../components';
@@ -10,14 +11,14 @@ const Home = ({ navigation }) => {
 
   const fecthQuiz = () =>
     fetch(
-      `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&category=18&difficulty=${difficulty}&type=boolean`
+      `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&category=18&difficulty=${difficulty}&type=boolean`,
     )
       .then((response) => response.json())
       .then(({ results }) =>
         results.map(({ question, correct_answer }) => ({
           question: entities.decode(question),
           correct_answer,
-        }))
+        })),
       );
 
   const handleBegin = () => {
@@ -40,6 +41,12 @@ const Home = ({ navigation }) => {
       </Text>
     </Container>
   );
+};
+
+Home.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+  }).isRequired,
 };
 
 export default Home;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
 import { Container, Text } from '../../components';
 
@@ -35,7 +36,6 @@ const Quiz = ({
       <Text accessibilityRole="button" onPress={() => navigation.goBack()}>
         Go Back
       </Text>
-      <Text accessibilityRole="heading">{quizItem.category}</Text>
       <Text>{quizItem.question}</Text>
       <Text accessibilityRole="button" onPress={() => handleAnswer('True')}>
         TRUE
@@ -45,6 +45,23 @@ const Quiz = ({
       </Text>
     </Container>
   );
+};
+
+Quiz.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func,
+    goBack: PropTypes.func,
+  }).isRequired,
+  route: PropTypes.shape({
+    params: PropTypes.shape({
+      quizList: PropTypes.arrayOf(
+        PropTypes.shape({
+          question: PropTypes.string.isRequired,
+          correct_answer: PropTypes.string.isRequired,
+        }),
+      ),
+    }),
+  }).isRequired,
 };
 
 export default Quiz;
