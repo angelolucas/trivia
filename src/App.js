@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';

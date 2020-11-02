@@ -19,12 +19,12 @@ const Results = ({
       <Text accessibilityRole="heading">
         You scored {hits}/{QUESTIONS_LENGTH}
       </Text>
-      {quizList.map((quizItem, index) => (
-        <Fragment key={index}>
-          <Text>{quizItem.question}</Text>
+      {quizList.map(({ id, question, answer }) => (
+        <Fragment key={id}>
+          <Text>{question}</Text>
           <Text>
-            {answers[index] ? "+ You're right" : '- You Missed'}, the answers is{' '}
-            {quizItem.correct_answer}
+            {answers[id] ? "+ You're right" : '- You Missed'}, the answers is{' '}
+            {answer}
           </Text>
         </Fragment>
       ))}
@@ -46,8 +46,9 @@ Results.propTypes = {
     params: PropTypes.shape({
       quizList: PropTypes.arrayOf(
         PropTypes.shape({
+          id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          correct_answer: PropTypes.string.isRequired,
+          answer: PropTypes.string.isRequired,
         }),
       ),
       answers: PropTypes.arrayOf(PropTypes.bool),

@@ -17,7 +17,7 @@ const Quiz = ({
     const newProgress = progress + 1;
     let newAnswersArray = [...answers];
 
-    if (answer === quizItem.correct_answer) {
+    if (answer === quizItem.answer) {
       newAnswersArray = [...answers, ...[true]];
     } else {
       newAnswersArray = [...answers, ...[false]];
@@ -56,8 +56,9 @@ Quiz.propTypes = {
     params: PropTypes.shape({
       quizList: PropTypes.arrayOf(
         PropTypes.shape({
+          id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          correct_answer: PropTypes.string.isRequired,
+          answer: PropTypes.string.isRequired,
         }),
       ),
     }),
