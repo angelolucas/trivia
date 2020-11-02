@@ -28,11 +28,12 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <Text accessibilityRole="heading">Welcome to the Trivia Challenge!</Text>
+      <Text accessibilityRole="heading">TRIVIA CHALLENGE</Text>
       <Text accessibilityRole="heading" aria-level="2">
-        You will be presented with 10 True of False Questions about computers.
-        Can you score 100%?
+        Hey! You will be presented with 10 <Text color="green">true</Text> or{' '}
+        <Text color="red">false</Text> questions about computers.
       </Text>
+      <Text accessibilityRole="heading">Can you score 100%?</Text>
       <Button title="Newbie" onPress={() => handleBegin('easy')} />
       <Button title="Geek" onPress={() => handleBegin('medium')} />
       <Button title="Hacker" onPress={() => handleBegin('hard')} />
