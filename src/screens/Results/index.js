@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { QUESTIONS_LENGTH } from '../../constants';
 import { Container, Text } from '../../components';
 
@@ -34,7 +33,6 @@ const Results = ({
       >
         Try again
       </Text>
-      <StatusBar style="auto" />
     </Container>
   );
 };

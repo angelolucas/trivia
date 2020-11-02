@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { QUESTIONS_LENGTH } from '../../constants';
 import { Container, Text } from '../../components';
 
@@ -44,7 +43,6 @@ const Quiz = ({
       <Text accessibilityRole="button" onPress={() => handleAnswer('False')}>
         FALSE
       </Text>
-      <StatusBar style="auto" />
     </Container>
   );
 };

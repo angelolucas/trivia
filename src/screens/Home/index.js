@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { Html5Entities } from 'html-entities';
 import { QUESTIONS_LENGTH } from '../../constants';
@@ -39,7 +38,6 @@ const Home = ({ navigation }) => {
       <Text accessibilityRole="button" onPress={handleBegin}>
         Begin
       </Text>
-      <StatusBar style="auto" />
     </Container>
   );
 };
