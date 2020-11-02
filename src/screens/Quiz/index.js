@@ -33,8 +33,17 @@ const Quiz = ({
     <Container>
       <Progress current={progress} total={QUESTIONS_LENGTH} />
       <Text>{quizItem.question}</Text>
-      <Button title="true" onPress={() => handleAnswer(true)} />
-      <Button title="false" onPress={() => handleAnswer(false)} />
+      <Button
+        title="true"
+        iconLeft="thumbs-up"
+        onPress={() => handleAnswer(true)}
+      />
+      <Button
+        title="false"
+        iconLeft="thumbs-down"
+        color="red"
+        onPress={() => handleAnswer(false)}
+      />
     </Container>
   );
 };

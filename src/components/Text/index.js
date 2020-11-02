@@ -9,8 +9,8 @@ const Text = ({ children, align, color, ...props }) => (
 );
 
 Text.propTypes = {
-  align: PropTypes.oneOf('left', 'center', 'right'),
-  color: PropTypes.oneOf('text', 'green', 'red'),
+  align: PropTypes.oneOf(['left', 'center', 'right']),
+  color: PropTypes.oneOf(['text', 'green', 'red']),
   children: PropTypes.node.isRequired,
 };
 

@@ -24,11 +24,15 @@ const Results = ({
           <Text>{question}</Text>
           <Text>
             {answers[id] ? "+ You're right" : '- You Missed'}, the answers is{' '}
-            {answer}
+            {answer ? 'true' : 'false'}
           </Text>
         </Fragment>
       ))}
-      <Button title="play again" onPress={() => navigation.navigate('Home')} />
+      <Button
+        title="play again"
+        iconRight="dice"
+        onPress={() => navigation.navigate('Home')}
+      />
     </Container>
   );
 };
@@ -46,7 +50,9 @@ Results.propTypes = {
           answer: PropTypes.bool.isRequired,
         }),
       ),
-      answers: PropTypes.objectOf(PropTypes.number),
+      answers: PropTypes.shape({
+        [PropTypes.number]: PropTypes.bool,
+      }),
     }),
   }).isRequired,
 };

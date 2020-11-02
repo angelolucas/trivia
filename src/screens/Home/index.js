@@ -34,9 +34,21 @@ const Home = ({ navigation }) => {
         <Text color="red">false</Text> questions about computers.
       </Text>
       <Text accessibilityRole="heading">Can you score 100%?</Text>
-      <Button title="Newbie" onPress={() => handleBegin('easy')} />
-      <Button title="Geek" onPress={() => handleBegin('medium')} />
-      <Button title="Hacker" onPress={() => handleBegin('hard')} />
+      <Button
+        title="Newbie"
+        iconRight="arrow-right"
+        onPress={() => handleBegin('easy')}
+      />
+      <Button
+        title="Geek"
+        iconRight="arrow-right"
+        onPress={() => handleBegin('medium')}
+      />
+      <Button
+        title="Hacker"
+        iconRight="arrow-right"
+        onPress={() => handleBegin('hard')}
+      />
     </Container>
   );
 };
