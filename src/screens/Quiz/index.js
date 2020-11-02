@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Text } from '../../components';
+import { Container, Progress, Text } from '../../components';
 
 const Quiz = ({
   navigation,
@@ -9,38 +9,34 @@ const Quiz = ({
     params: { quizList },
   },
 }) => {
-  const [progress, setProgress] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const quizItem = quizList[progress];
-
+  const [progress, setProgress] = useState(1);
+  const [answers, setAnswers] = useState({});
+  const quizItem = quizList.find((item) => item.id === progress);
   const handleAnswer = (answer) => {
-    const newProgress = progress + 1;
-    let newAnswersArray = [...answers];
+    const newAnswersArray = { ...answers };
 
     if (answer === quizItem.answer) {
-      newAnswersArray = [...answers, ...[true]];
+      newAnswersArray[progress] = true;
     } else {
-      newAnswersArray = [...answers, ...[false]];
+      newAnswersArray[progress] = false;
     }
 
-    if (newProgress === QUESTIONS_LENGTH) {
+    if (progress === QUESTIONS_LENGTH) {
       navigation.navigate('Results', { quizList, answers: newAnswersArray });
     } else {
-      setProgress(newProgress);
+      setProgress(progress + 1);
       setAnswers(newAnswersArray);
     }
   };
 
   return (
     <Container>
-      <Text accessibilityRole="button" onPress={() => navigation.goBack()}>
-        Go Back
-      </Text>
+      <Progress current={progress} total={QUESTIONS_LENGTH} />
       <Text>{quizItem.question}</Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer('True')}>
+      <Text accessibilityRole="button" onPress={() => handleAnswer(true)}>
         TRUE
       </Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer('False')}>
+      <Text accessibilityRole="button" onPress={() => handleAnswer(false)}>
         FALSE
       </Text>
     </Container>
@@ -58,7 +54,7 @@ Quiz.propTypes = {
         PropTypes.shape({
           id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          answer: PropTypes.string.isRequired,
+          answer: PropTypes.bool.isRequired,
         }),
       ),
     }),

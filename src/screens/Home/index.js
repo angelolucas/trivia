@@ -9,15 +9,18 @@ const Home = ({ navigation }) => {
 
   const entities = new Html5Entities();
 
-  const fecthQuiz = () => fetch(
-    `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&category=18&difficulty=${difficulty}&type=boolean`,
-  )
-    .then((response) => response.json())
-    .then(({ results }) => results.map((item, index) => ({
-      id: index,
-      question: entities.decode(item.question),
-      answer: item.correct_answer,
-    })));
+  const fecthQuiz = () =>
+    fetch(
+      `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&category=18&difficulty=${difficulty}&type=boolean`,
+    )
+      .then((response) => response.json())
+      .then(({ results }) =>
+        results.map((item, index) => ({
+          id: index + 1,
+          question: entities.decode(item.question),
+          answer: item.correct_answer === 'True',
+        })),
+      );
 
   const handleBegin = () => {
     fecthQuiz().then((quizList) => navigation.navigate('Quiz', { quizList }));

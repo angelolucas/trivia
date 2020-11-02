@@ -9,7 +9,7 @@ const Results = ({
     params: { quizList, answers },
   },
 }) => {
-  const hits = answers.reduce(
+  const hits = Object.values(answers).reduce(
     (total, correct) => (correct ? total + 1 : total),
     0,
   );
@@ -48,10 +48,10 @@ Results.propTypes = {
         PropTypes.shape({
           id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          answer: PropTypes.string.isRequired,
+          answer: PropTypes.bool.isRequired,
         }),
       ),
-      answers: PropTypes.arrayOf(PropTypes.bool),
+      answers: PropTypes.objectOf(PropTypes.number),
     }),
   }).isRequired,
 };
