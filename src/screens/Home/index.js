@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Html5Entities } from 'html-entities';
 import { QUESTIONS_LENGTH } from '../../constants';
 import { Container, Text } from '../../components';
 
 const Home = ({ navigation }) => {
-  const [difficulty, setDifficulty] = useState('easy');
-
   const entities = new Html5Entities();
 
-  const fecthQuiz = () =>
+  const fecthQuiz = (difficulty) =>
     fetch(
       `https://opentdb.com/api.php?amount=${QUESTIONS_LENGTH}&category=18&difficulty=${difficulty}&type=boolean`,
     )
@@ -22,8 +20,10 @@ const Home = ({ navigation }) => {
         })),
       );
 
-  const handleBegin = () => {
-    fecthQuiz().then((quizList) => navigation.navigate('Quiz', { quizList }));
+  const handleBegin = (difficulty) => {
+    fecthQuiz(difficulty).then((quizList) =>
+      navigation.navigate('Quiz', { quizList }),
+    );
   };
 
   return (
@@ -34,12 +34,9 @@ const Home = ({ navigation }) => {
         Can you score 100%?
       </Text>
       <Text>--- Tell mew more about you ---</Text>
-      <Text onPress={() => setDifficulty('easy')}>Newbie</Text>
-      <Text onPress={() => setDifficulty('medium')}>Geek</Text>
-      <Text onPress={() => setDifficulty('hard')}>Hacker</Text>
-      <Text accessibilityRole="button" onPress={handleBegin}>
-        Begin
-      </Text>
+      <Text onPress={() => handleBegin('easy')}>Newbie</Text>
+      <Text onPress={() => handleBegin('medium')}>Geek</Text>
+      <Text onPress={() => handleBegin('hard')}>Hacker</Text>
     </Container>
   );
 };
