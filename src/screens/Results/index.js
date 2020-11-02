@@ -15,7 +15,7 @@ const Results = ({
   );
 
   return (
-    <Container command="ends">
+    <Container>
       <Text accessibilityRole="heading">
         You scored {hits}/{QUESTIONS_LENGTH}
       </Text>

@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
   };
 
   return (
-    <Container command="start">
+    <Container>
       <Text accessibilityRole="heading">Welcome to the Trivia Challenge!</Text>
       <Text accessibilityRole="heading" aria-level="2">
         You will be presented with 10 True of False Questions about computers.

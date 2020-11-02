@@ -32,7 +32,7 @@ const Quiz = ({
   };
 
   return (
-    <Container command={`quiz ${progress}/${QUESTIONS_LENGTH}`}>
+    <Container>
       <Text accessibilityRole="button" onPress={() => navigation.goBack()}>
         Go Back
       </Text>
