@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Text } from '../../components';
+import { Container, Text, Button } from '../../components';
 
 const Results = ({
   navigation,
@@ -28,12 +28,7 @@ const Results = ({
           </Text>
         </Fragment>
       ))}
-      <Text
-        accessibilityRole="button"
-        onPress={() => navigation.navigate('Home')}
-      >
-        Try again
-      </Text>
+      <Button title="play again" onPress={() => navigation.navigate('Home')} />
     </Container>
   );
 };

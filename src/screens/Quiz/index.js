@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Progress, Text } from '../../components';
+import { Container, Progress, Text, Button } from '../../components';
 
 const Quiz = ({
   navigation,
@@ -33,12 +33,8 @@ const Quiz = ({
     <Container>
       <Progress current={progress} total={QUESTIONS_LENGTH} />
       <Text>{quizItem.question}</Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer(true)}>
-        TRUE
-      </Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer(false)}>
-        FALSE
-      </Text>
+      <Button title="true" onPress={() => handleAnswer(true)} />
+      <Button title="false" onPress={() => handleAnswer(false)} />
     </Container>
   );
 };

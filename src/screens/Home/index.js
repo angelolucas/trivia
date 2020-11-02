@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Html5Entities } from 'html-entities';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Text } from '../../components';
+import { Container, Text, Button } from '../../components';
 
 const Home = ({ navigation }) => {
   const entities = new Html5Entities();
@@ -33,10 +33,9 @@ const Home = ({ navigation }) => {
         You will be presented with 10 True of False Questions about computers.
         Can you score 100%?
       </Text>
-      <Text>--- Tell mew more about you ---</Text>
-      <Text onPress={() => handleBegin('easy')}>Newbie</Text>
-      <Text onPress={() => handleBegin('medium')}>Geek</Text>
-      <Text onPress={() => handleBegin('hard')}>Hacker</Text>
+      <Button title="Newbie" onPress={() => handleBegin('easy')} />
+      <Button title="Geek" onPress={() => handleBegin('medium')} />
+      <Button title="Hacker" onPress={() => handleBegin('hard')} />
     </Container>
   );
 };
