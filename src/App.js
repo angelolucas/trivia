@@ -1,23 +1,23 @@
-import React from "react";
-import { useColorScheme } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { ThemeProvider } from "styled-components/native";
-import { AppLoading } from "expo";
+import React from 'react';
+import { useColorScheme } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { ThemeProvider } from 'styled-components/native';
+import { AppLoading } from 'expo';
 import {
   useFonts,
   ShareTechMono_400Regular,
-} from "@expo-google-fonts/share-tech-mono";
-import Home from "./screens/Home";
-import Quiz from "./screens/Quiz";
-import Results from "./screens/Results";
-import theme from "./theme";
+} from '@expo-google-fonts/share-tech-mono';
+import Home from './screens/Home';
+import Quiz from './screens/Quiz';
+import Results from './screens/Results';
+import theme from './theme';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-  const dark = useColorScheme() === "dark";
-  let [fontsLoaded] = useFonts({
+  const dark = useColorScheme() === 'dark';
+  const [fontsLoaded] = useFonts({
     ShareTechMono_400Regular,
   });
 

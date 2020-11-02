@@ -1,9 +1,9 @@
-import React from "react";
-import Text from "../Text";
-import * as S from "./styles";
+import React from 'react';
+import Text from '../Text';
+import * as S from './styles';
 
 const Container = ({ children, command, ...props }) => (
-  <S.Container>
+  <S.Container {...props}>
     <Text>$ trivia-challenge {command}</Text>
     {children}
   </S.Container>

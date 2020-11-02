@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import { StatusBar } from "expo-status-bar";
-import { QUESTIONS_LENGTH } from "../../constants";
-import { Container, Text } from "../../components";
+import React, { Fragment } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { QUESTIONS_LENGTH } from '../../constants';
+import { Container, Text } from '../../components';
 
 const Results = ({
   navigation,
@@ -23,14 +23,14 @@ const Results = ({
         <Fragment key={index}>
           <Text>{quizItem.question}</Text>
           <Text>
-            {answers[index] ? "+ You're right" : "- You Missed"}, the answers is{" "}
+            {answers[index] ? "+ You're right" : '- You Missed'}, the answers is{' '}
             {quizItem.correct_answer}
           </Text>
         </Fragment>
       ))}
       <Text
         accessibilityRole="button"
-        onPress={() => navigation.navigate("Home")}
+        onPress={() => navigation.navigate('Home')}
       >
         Try again
       </Text>

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import { QUESTIONS_LENGTH } from "../../constants";
-import { Container, Text } from "../../components";
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { QUESTIONS_LENGTH } from '../../constants';
+import { Container, Text } from '../../components';
 
 const Quiz = ({
   navigation,
@@ -24,7 +24,7 @@ const Quiz = ({
     }
 
     if (newProgress === QUESTIONS_LENGTH) {
-      navigation.navigate("Results", { quizList, answers: newAnswersArray });
+      navigation.navigate('Results', { quizList, answers: newAnswersArray });
     } else {
       setProgress(newProgress);
       setAnswers(newAnswersArray);
@@ -38,10 +38,10 @@ const Quiz = ({
       </Text>
       <Text accessibilityRole="heading">{quizItem.category}</Text>
       <Text>{quizItem.question}</Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer("True")}>
+      <Text accessibilityRole="button" onPress={() => handleAnswer('True')}>
         TRUE
       </Text>
-      <Text accessibilityRole="button" onPress={() => handleAnswer("False")}>
+      <Text accessibilityRole="button" onPress={() => handleAnswer('False')}>
         FALSE
       </Text>
       <StatusBar style="auto" />

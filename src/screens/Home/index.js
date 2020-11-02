@@ -1,11 +1,11 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { Html5Entities } from "html-entities";
-import { QUESTIONS_LENGTH } from "../../constants";
-import { Container, Text } from "../../components";
+import { StatusBar } from 'expo-status-bar';
+import React, { useState } from 'react';
+import { Html5Entities } from 'html-entities';
+import { QUESTIONS_LENGTH } from '../../constants';
+import { Container, Text } from '../../components';
 
 const Home = ({ navigation }) => {
-  const [difficulty, setDifficulty] = useState("easy");
+  const [difficulty, setDifficulty] = useState('easy');
 
   const entities = new Html5Entities();
 
@@ -22,7 +22,7 @@ const Home = ({ navigation }) => {
       );
 
   const handleBegin = () => {
-    fecthQuiz().then((quizList) => navigation.navigate("Quiz", { quizList }));
+    fecthQuiz().then((quizList) => navigation.navigate('Quiz', { quizList }));
   };
 
   return (
@@ -33,9 +33,9 @@ const Home = ({ navigation }) => {
         Can you score 100%?
       </Text>
       <Text>--- Tell mew more about you ---</Text>
-      <Text onPress={() => setDifficulty("easy")}>Newbie</Text>
-      <Text onPress={() => setDifficulty("medium")}>Geek</Text>
-      <Text onPress={() => setDifficulty("hard")}>Hacker</Text>
+      <Text onPress={() => setDifficulty('easy')}>Newbie</Text>
+      <Text onPress={() => setDifficulty('medium')}>Geek</Text>
+      <Text onPress={() => setDifficulty('hard')}>Hacker</Text>
       <Text accessibilityRole="button" onPress={handleBegin}>
         Begin
       </Text>
