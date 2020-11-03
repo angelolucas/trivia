@@ -23,12 +23,10 @@ const Results = ({
           </Text>
         </Display.Item>
         <Display.Item>
-          {quizList.map(({ id, question, answer }) => (
+          {quizList.map(({ id }) => (
             <Fragment key={id}>
-              <Text>{question}</Text>
               <Text>
-                {answers[id] ? "+ You're right" : '- You Missed'}, the answers
-                is {answer ? 'true' : 'false'}
+                {id} = {answers[id] === 'Hit' ? ':D' : ':('}
               </Text>
             </Fragment>
           ))}
@@ -55,11 +53,11 @@ Results.propTypes = {
         PropTypes.shape({
           id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          answer: PropTypes.bool.isRequired,
+          answer: PropTypes.oneOf(['True', 'False']).isRequired,
         }),
       ),
       answers: PropTypes.shape({
-        [PropTypes.number]: PropTypes.bool,
+        [PropTypes.number]: PropTypes.oneOf(['Hit', 'Miss']).isRequired,
       }),
     }),
   }).isRequired,

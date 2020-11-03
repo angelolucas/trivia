@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Display, Progress, Text, Button } from '../../components';
+import {
+  Container,
+  Display,
+  Progress,
+  Card,
+  ResultBar,
+  Button,
+} from '../../components';
 
 const Quiz = ({
   navigation,
@@ -10,24 +17,30 @@ const Quiz = ({
   },
 }) => {
   const [progress, setProgress] = useState(1);
+  const [showResult, setShowResult] = useState(false);
   const [answers, setAnswers] = useState({});
   const quizItem = quizList.find((item) => item.id === progress);
-  const handleAnswer = (answer) => {
+  const handleNext = () => {
+    if (progress === QUESTIONS_LENGTH) {
+      navigation.navigate('Results', { quizList, answers });
+    } else {
+      setShowResult(false);
+      setProgress(progress + 1);
+    }
+  };
+  const handleResult = (answer) => {
     const newAnswersArray = { ...answers };
 
     if (answer === quizItem.answer) {
-      newAnswersArray[progress] = true;
+      newAnswersArray[progress] = 'Hit';
     } else {
-      newAnswersArray[progress] = false;
+      newAnswersArray[progress] = 'Miss';
     }
 
-    if (progress === QUESTIONS_LENGTH) {
-      navigation.navigate('Results', { quizList, answers: newAnswersArray });
-    } else {
-      setProgress(progress + 1);
-      setAnswers(newAnswersArray);
-    }
+    setShowResult(true);
+    setAnswers(newAnswersArray);
   };
+  const result = answers[progress];
 
   return (
     <Container>
@@ -36,7 +49,9 @@ const Quiz = ({
           <Progress current={progress} total={QUESTIONS_LENGTH} />
         </Display.Item>
         <Display.Item>
-          <Text>{quizItem.question}</Text>
+          <Card result={showResult ? quizItem.answer : ''}>
+            {quizItem.question}
+          </Card>
         </Display.Item>
         <Display.Item>
           <Display flexDirection="row" spacer="small">
@@ -45,7 +60,7 @@ const Quiz = ({
                 title="true"
                 iconLeft="thumbs-up"
                 color="green"
-                onPress={() => handleAnswer(true)}
+                onPress={() => handleResult('True')}
               />
             </Display.Item>
             <Display.Item flex="1">
@@ -53,12 +68,13 @@ const Quiz = ({
                 title="false"
                 iconLeft="thumbs-down"
                 color="red"
-                onPress={() => handleAnswer(false)}
+                onPress={() => handleResult('False')}
               />
             </Display.Item>
           </Display>
         </Display.Item>
       </Display>
+      {showResult && <ResultBar result={result} onPress={handleNext} />}
     </Container>
   );
 };
@@ -74,7 +90,7 @@ Quiz.propTypes = {
         PropTypes.shape({
           id: PropTypes.number.isRequired,
           question: PropTypes.string.isRequired,
-          answer: PropTypes.bool.isRequired,
+          answer: PropTypes.oneOf(['True', 'False']).isRequired,
         }),
       ),
     }),

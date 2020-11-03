@@ -16,7 +16,7 @@ const Home = ({ navigation }) => {
         results.map((item, index) => ({
           id: index + 1,
           question: entities.decode(item.question),
-          answer: item.correct_answer === 'True',
+          answer: item.correct_answer,
         })),
       );
 
