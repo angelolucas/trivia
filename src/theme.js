@@ -1,11 +1,10 @@
 export default (dark = true) => ({
   color: {
-    background: dark ? '#111A20' : 'white',
+    background: dark ? '#111A20' : '#ECF8FF',
     green: '#00b756',
     red: '#ED293F',
-    blue: '#268bd2',
-    gray: '#243B4A',
-    text: '#ECF8FF',
+    gray: dark ? '#243B4A' : '#BFD3E0',
+    text: dark ? '#ECF8FF' : '#111A20',
   },
   fontFamily: 'DoHyeon_400Regular',
 });
