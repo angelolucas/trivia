@@ -13,12 +13,16 @@ const Results = ({
     (total, correct) => (correct === 'Hit' ? total + 1 : total),
     0,
   );
+  const hitMost = (hits * 100) / QUESTIONS_LENGTH > 50;
 
   return (
     <Container>
       <Display spacer="large" justifyContent="space-between">
         <Display.Item>
-          <Text align="center" accessibilityRole="heading">
+          <Text align="center">
+            {hitMost ? 'WOW! Incredible.' : 'You can do it better. Try again.'}
+          </Text>
+          <Text size="medium" align="center" accessibilityRole="heading">
             You scored {hits}/{QUESTIONS_LENGTH}
           </Text>
         </Display.Item>
@@ -32,7 +36,7 @@ const Results = ({
                 <Text size="small">
                   {id} - {question}
                 </Text>
-                <Text size="small" style={{ marginBottom: 20 }}>
+                <Text size="small" style={{ marginBottom: 40 }}>
                   <Text color={hit ? 'green' : 'red'} size="small">
                     {hit ? "You're right" : 'You missed'}
                   </Text>{' '}
