@@ -28,7 +28,7 @@ const Home = ({ navigation }) => {
 
   return (
     <Container>
-      <Display justifyContent="space-between">
+      <Display spacer="large" justifyContent="space-between">
         <Display.Item>
           <Text accessibilityRole="heading">TRIVIA CHALLENGE</Text>
         </Display.Item>

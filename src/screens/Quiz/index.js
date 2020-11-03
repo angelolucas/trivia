@@ -44,7 +44,7 @@ const Quiz = ({
 
   return (
     <Container>
-      <Display justifyContent="space-between">
+      <Display spacer="large" justifyContent="space-between">
         <Display.Item>
           <Progress current={progress} total={QUESTIONS_LENGTH} />
         </Display.Item>

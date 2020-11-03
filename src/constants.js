@@ -1,1 +1,1 @@
-export const QUESTIONS_LENGTH = 2;
+export const QUESTIONS_LENGTH = 10;
