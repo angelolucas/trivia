@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { QUESTIONS_LENGTH } from '../../constants';
+import { QUESTIONS_LENGTH } from '../constants';
 import {
   Container,
   Display,
@@ -8,7 +8,7 @@ import {
   Card,
   ResultBar,
   Button,
-} from '../../components';
+} from '../components';
 
 const Quiz = ({
   navigation,

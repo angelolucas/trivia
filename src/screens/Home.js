@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Html5Entities } from 'html-entities';
-import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Display, Text, Button } from '../../components';
+import { QUESTIONS_LENGTH } from '../constants';
+import { Container, Display, Text, Button } from '../components';
 
 const Home = ({ navigation }) => {
   const entities = new Html5Entities();
