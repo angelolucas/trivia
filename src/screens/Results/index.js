@@ -57,6 +57,18 @@ const Results = ({
             onPress={() => navigation.navigate('Home')}
           />
         </Display.Item>
+        <Display.Item>
+          <Text size="small" align="center">
+            made with <Icon name="heart" color="green" /> by{' '}
+            <Text
+              color="green"
+              size="small"
+              onPress={() => Linking.openURL('http://angelolucas.github.io/')}
+            >
+              Angelo
+            </Text>
+          </Text>
+        </Display.Item>
       </Display>
     </Container>
   );
