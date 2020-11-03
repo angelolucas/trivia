@@ -8,9 +8,3 @@ export const Button = styled.TouchableOpacity(({ color, align, theme }) => ({
   alignItems: 'center',
   padding: 18,
 }));
-
-export const Text = styled.Text(({ theme: { color, fontFamily } }) => ({
-  color: color.text,
-  fontSize: 22,
-  fontFamily,
-}));

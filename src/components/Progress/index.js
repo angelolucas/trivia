@@ -10,7 +10,7 @@ const Progress = ({ current, total }) => (
         <S.ProgressItem active={page === current} key={page} />
       ))}
     </S.ProgressBar>
-    <Text align="right">
+    <Text size="small" align="right">
       {current} / {total}
     </Text>
   </>

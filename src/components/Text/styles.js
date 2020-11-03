@@ -1,9 +1,8 @@
 import styled from 'styled-components/native';
 
-export const Text = styled.Text(({ align, color, theme }) => ({
+export const Text = styled.Text(({ align, color, fontSize, theme }) => ({
   color: theme.color[color],
-  fontSize: 30,
+  fontSize,
   fontFamily: theme.fontFamily,
-  marginBottom: 10,
   textAlign: align,
 }));

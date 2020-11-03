@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { ThemeContext } from 'styled-components/native';
-
+import Text from '../Text';
 import * as S from './styles';
 
 const Button = ({
@@ -22,6 +22,7 @@ const Button = ({
       color={color}
       align={align}
       onPress={onPress}
+      {...props}
     >
       {iconLeft && (
         <Icon
@@ -31,7 +32,7 @@ const Button = ({
           color={theme.color.text}
         />
       )}
-      <S.Text {...props}>{title}</S.Text>
+      <Text size="medium">{title}</Text>
       {iconRight && (
         <Icon
           name={iconRight}
