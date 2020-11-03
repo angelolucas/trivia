@@ -44,6 +44,7 @@ const Quiz = ({
               <Button
                 title="true"
                 iconLeft="thumbs-up"
+                color="green"
                 onPress={() => handleAnswer(true)}
               />
             </Display.Item>

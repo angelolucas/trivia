@@ -1,7 +1,7 @@
 export default (dark = true) => ({
   color: {
     background: dark ? '#111A20' : 'white',
-    green: '#2CD27A',
+    green: '#00b756',
     red: '#ED293F',
     blue: '#268bd2',
     gray: '#243B4A',

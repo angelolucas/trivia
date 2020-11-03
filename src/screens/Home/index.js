@@ -45,6 +45,7 @@ const Home = ({ navigation }) => {
               <Button
                 title="Newbie"
                 iconRight="arrow-right"
+                align="justified"
                 onPress={() => handleBegin('easy')}
               />
             </Display.Item>
@@ -52,6 +53,7 @@ const Home = ({ navigation }) => {
               <Button
                 title="Geek"
                 iconRight="arrow-right"
+                align="justified"
                 onPress={() => handleBegin('medium')}
               />
             </Display.Item>
@@ -59,6 +61,7 @@ const Home = ({ navigation }) => {
               <Button
                 title="Hacker"
                 iconRight="arrow-right"
+                align="justified"
                 onPress={() => handleBegin('hard')}
               />
             </Display.Item>

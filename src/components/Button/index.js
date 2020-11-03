@@ -6,8 +6,8 @@ import { ThemeContext } from 'styled-components/native';
 import * as S from './styles';
 
 const Button = ({
+  align,
   onPress,
-  justify,
   color,
   iconLeft,
   iconRight,
@@ -17,30 +17,45 @@ const Button = ({
   const theme = useContext(ThemeContext);
 
   return (
-    <S.Button accessibilityRole="button" onPress={onPress}>
-      {iconLeft && <Icon name={iconLeft} size={16} color={theme.color.text} />}
-      <S.Text justify={justify} color={color} {...props}>
-        {title}
-      </S.Text>
+    <S.Button
+      accessibilityRole="button"
+      color={color}
+      align={align}
+      onPress={onPress}
+    >
+      {iconLeft && (
+        <Icon
+          name={iconLeft}
+          style={{ marginRight: 10 }}
+          size={16}
+          color={theme.color.text}
+        />
+      )}
+      <S.Text {...props}>{title}</S.Text>
       {iconRight && (
-        <Icon name={iconRight} size={16} color={theme.color.text} />
+        <Icon
+          name={iconRight}
+          size={16}
+          style={{ marginLeft: 10 }}
+          color={theme.color.text}
+        />
       )}
     </S.Button>
   );
 };
 
 Button.propTypes = {
+  align: PropTypes.oneOf(['center', 'justified']),
   color: PropTypes.oneOf(['gray', 'green', 'red', 'light']),
   iconLeft: PropTypes.string,
   iconRight: PropTypes.string,
-  justify: PropTypes.oneOf(['center', 'space-between']),
   onPress: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };
 
 Button.defaultProps = {
+  align: 'center',
   color: 'gray',
-  justify: 'center',
   iconLeft: null,
   iconRight: null,
 };
