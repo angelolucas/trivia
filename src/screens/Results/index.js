@@ -16,20 +16,35 @@ const Results = ({
 
   return (
     <Container>
-      <Display justifyContent="space-between">
+      <Display spacer="large" justifyContent="space-between">
         <Display.Item>
-          <Text accessibilityRole="heading">
+          <Text align="center" accessibilityRole="heading">
             You scored {hits}/{QUESTIONS_LENGTH}
           </Text>
         </Display.Item>
         <Display.Item>
-          {quizList.map(({ id }) => (
-            <Fragment key={id}>
-              <Text>
-                {id} = {answers[id] === 'Hit' ? ':D' : ':('}
-              </Text>
-            </Fragment>
-          ))}
+          {quizList.map(({ id, question, answer }) => {
+            const correctAnswer = answer === 'True';
+            const hit = answers[id] === 'Hit';
+
+            return (
+              <Fragment key={id}>
+                <Text size="small">
+                  {id} - {question}
+                </Text>
+                <Text size="small" style={{ marginBottom: 20 }}>
+                  <Text color={hit ? 'green' : 'red'} size="small">
+                    {hit ? "You're right" : 'You missed'}
+                  </Text>{' '}
+                  the answer is{' '}
+                  <Text size="small" color={correctAnswer ? 'green' : 'red'}>
+                    {answer}
+                  </Text>
+                  .
+                </Text>
+              </Fragment>
+            );
+          })}
         </Display.Item>
         <Display.Item>
           <Button
