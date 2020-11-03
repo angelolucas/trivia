@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { ThemeContext } from 'styled-components/native';
+import Icon from '../Icon';
 import Text from '../Text';
 import * as S from './styles';
 
@@ -13,41 +12,27 @@ const Button = ({
   iconRight,
   title,
   ...props
-}) => {
-  const theme = useContext(ThemeContext);
-
-  return (
-    <S.Button
-      accessibilityRole="button"
-      color={color}
-      align={align}
-      onPress={onPress}
-      {...props}
-    >
-      {iconLeft && (
-        <Icon
-          name={iconLeft}
-          style={{ marginRight: 10 }}
-          size={16}
-          color={theme.color.text}
-        />
-      )}
-      <Text size="medium">{title}</Text>
-      {iconRight && (
-        <Icon
-          name={iconRight}
-          size={16}
-          style={{ marginLeft: 10 }}
-          color={theme.color.text}
-        />
-      )}
-    </S.Button>
-  );
-};
+}) => (
+  <S.Button
+    accessibilityRole="button"
+    color={color}
+    align={align}
+    onPress={onPress}
+    {...props}
+  >
+    {iconLeft && (
+      <Icon name={iconLeft} style={{ marginRight: 10 }} color="text" />
+    )}
+    <Text size="medium">{title}</Text>
+    {iconRight && (
+      <Icon name={iconRight} style={{ marginLeft: 10 }} color="text" />
+    )}
+  </S.Button>
+);
 
 Button.propTypes = {
   align: PropTypes.oneOf(['center', 'justified']),
-  color: PropTypes.oneOf(['gray', 'green', 'red', 'light']),
+  color: PropTypes.oneOf(['gray', 'green', 'red', 'blue']),
   iconLeft: PropTypes.string,
   iconRight: PropTypes.string,
   onPress: PropTypes.func.isRequired,
