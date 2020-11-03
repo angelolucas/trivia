@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Progress, Text, Button } from '../../components';
+import { Container, Display, Progress, Text, Button } from '../../components';
 
 const Quiz = ({
   navigation,
@@ -31,19 +31,33 @@ const Quiz = ({
 
   return (
     <Container>
-      <Progress current={progress} total={QUESTIONS_LENGTH} />
-      <Text>{quizItem.question}</Text>
-      <Button
-        title="true"
-        iconLeft="thumbs-up"
-        onPress={() => handleAnswer(true)}
-      />
-      <Button
-        title="false"
-        iconLeft="thumbs-down"
-        color="red"
-        onPress={() => handleAnswer(false)}
-      />
+      <Display justifyContent="space-between">
+        <Display.Item>
+          <Progress current={progress} total={QUESTIONS_LENGTH} />
+        </Display.Item>
+        <Display.Item>
+          <Text>{quizItem.question}</Text>
+        </Display.Item>
+        <Display.Item>
+          <Display flexDirection="row" spacer="small">
+            <Display.Item flex="1">
+              <Button
+                title="true"
+                iconLeft="thumbs-up"
+                onPress={() => handleAnswer(true)}
+              />
+            </Display.Item>
+            <Display.Item flex="1">
+              <Button
+                title="false"
+                iconLeft="thumbs-down"
+                color="red"
+                onPress={() => handleAnswer(false)}
+              />
+            </Display.Item>
+          </Display>
+        </Display.Item>
+      </Display>
     </Container>
   );
 };

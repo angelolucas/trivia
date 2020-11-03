@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Text, Button } from '../../components';
+import { Container, Display, Text, Button } from '../../components';
 
 const Results = ({
   navigation,
@@ -16,23 +16,31 @@ const Results = ({
 
   return (
     <Container>
-      <Text accessibilityRole="heading">
-        You scored {hits}/{QUESTIONS_LENGTH}
-      </Text>
-      {quizList.map(({ id, question, answer }) => (
-        <Fragment key={id}>
-          <Text>{question}</Text>
-          <Text>
-            {answers[id] ? "+ You're right" : '- You Missed'}, the answers is{' '}
-            {answer ? 'true' : 'false'}
+      <Display justifyContent="space-between">
+        <Display.Item>
+          <Text accessibilityRole="heading">
+            You scored {hits}/{QUESTIONS_LENGTH}
           </Text>
-        </Fragment>
-      ))}
-      <Button
-        title="play again"
-        iconRight="dice"
-        onPress={() => navigation.navigate('Home')}
-      />
+        </Display.Item>
+        <Display.Item>
+          {quizList.map(({ id, question, answer }) => (
+            <Fragment key={id}>
+              <Text>{question}</Text>
+              <Text>
+                {answers[id] ? "+ You're right" : '- You Missed'}, the answers
+                is {answer ? 'true' : 'false'}
+              </Text>
+            </Fragment>
+          ))}
+        </Display.Item>
+        <Display.Item>
+          <Button
+            title="play again"
+            iconRight="dice"
+            onPress={() => navigation.navigate('Home')}
+          />
+        </Display.Item>
+      </Display>
     </Container>
   );
 };
