@@ -10,7 +10,7 @@ const Results = ({
   },
 }) => {
   const hits = Object.values(answers).reduce(
-    (total, correct) => (correct ? total + 1 : total),
+    (total, correct) => (correct === 'Hit' ? total + 1 : total),
     0,
   );
 
@@ -71,9 +71,8 @@ Results.propTypes = {
           answer: PropTypes.oneOf(['True', 'False']).isRequired,
         }),
       ),
-      answers: PropTypes.shape({
-        [PropTypes.number]: PropTypes.oneOf(['Hit', 'Miss']).isRequired,
-      }),
+      // eslint-disable-next-line react/forbid-prop-types
+      answers: PropTypes.object.isRequired,
     }),
   }).isRequired,
 };
