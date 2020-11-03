@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as S from './styles';
 
 const Container = ({ children, ...props }) => (
-  <S.Container {...props}>
+  <S.Container contentContainerStyle={{ height: '100%' }} {...props}>
     {children}
     <StatusBar style="auto" />
   </S.Container>

@@ -5,9 +5,8 @@ export const Display = styled.View(
     alignItems,
     flexDirection,
     justifyContent,
-    height: '100%',
-
     margin: -margin,
+    flex: 'auto',
   }),
 );
 
