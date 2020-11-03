@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Linking } from 'react-native';
 import { QUESTIONS_LENGTH } from '../../constants';
-import { Container, Display, Text, Button } from '../../components';
+import { Container, Display, Text, Button, Icon } from '../../components';
+import randomTryAgainQuotes from '../../utils/ramdomTryAgainQuotes';
 
 const Results = ({
   navigation,
@@ -20,7 +22,7 @@ const Results = ({
       <Display spacer="large" justifyContent="space-between">
         <Display.Item>
           <Text align="center">
-            {hitMost ? 'WOW! Incredible.' : 'You can do it better. Try again.'}
+            {hitMost ? 'WOW! Incredible.' : randomTryAgainQuotes()}
           </Text>
           <Text size="medium" align="center" accessibilityRole="heading">
             You scored {hits}/{QUESTIONS_LENGTH}
