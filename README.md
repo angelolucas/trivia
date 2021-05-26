@@ -1,6 +1,4 @@
-# Trivia Game Coding Challenge
-This is a challenge promoted by [G2i].
-[Click here][challenge] to read the specifications.
+# Trivia Game
 
 ## Stack
 - ⚛️ [React Native][react-native]: To crate native apps for Android and iOS using React
@@ -37,8 +35,6 @@ The dark and light theme that is automatically presented based on the system
 | Light -Home | Light - Quiz | Light - Result  |
 | ![light-01] | ![light-02] | ![light-03] |
 
-[G2i]: https://www.g2i.co/
-[challenge]: https://gist.github.com/severnsc/e09f4f8742b7dd91af9c422d6f210a57
 [react-native]: https://reactnative.dev/
 [expo]: https://expo.io/
 [styled-components]: https://styled-components.com/
